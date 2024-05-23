@@ -1,0 +1,54 @@
+id: org.flatpak.GoZen
+
+runtime: org.freedesktop.Platform
+
+runtime-version: '23.08'
+
+sdk: org.freedesktop.Sdk
+
+command: linux_debug.sh
+
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --filesystem=xdg-download
+  - --filesystem=xdg-documents
+  - --filesystem=xdg-run/gvfsd
+  - --device=dri
+  - --socket=pulseaudio
+
+modules:
+  - name: GoZenDEBUG
+    buildsystem: simple
+    build-commands:
+      - install -D libgozen.linux.template_debug.x86_64.so /app/bin/libgozen.linux.template_debug.x86_64.so
+    sources:
+      - type: file
+        path: libgozen.linux.template_debug.x86_64.so
+
+  - name: GoZenPCK
+    buildsystem: simple
+    build-commands:
+      - install -D linux_debug.pck /app/bin/linux_debug.pck
+    sources:
+      - type: file
+        path: linux_debug.pck
+
+  - name: GoZenEXE
+    buildsystem: simple
+    build-commands:
+      - install -D linux_debug.x86_64 /app/bin/linux_debug.x86_64
+    sources:
+      - type: file
+        path: linux_debug.x86_64
+
+  - name: GoZenSH
+    buildsystem: simple
+    build-commands:
+      - install -D linux_debug.sh /app/bin/linux_debug.sh
+    sources:
+      - type: file
+        path: linux_debug.sh
+

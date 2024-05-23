@@ -1,0 +1,11 @@
+[Application]
+name=org.flatpak.GoZen
+runtime=org.freedesktop.Platform/x86_64/23.08
+sdk=org.freedesktop.Sdk/x86_64/23.08
+command=linux_debug.sh
+
+[Context]
+shared=network;ipc;
+sockets=x11;wayland;pulseaudio;fallback-x11;
+devices=dri;
+filesystems=xdg-download;xdg-documents;xdg-run/gvfsd;

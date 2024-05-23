@@ -1,0 +1,64 @@
+{
+  "id" : "org.flatpak.GoZen",
+  "runtime" : "org.freedesktop.Platform",
+  "runtime-version" : "23.08",
+  "runtime-commit" : "ab9602713e7ba1760659679a2925d82e73f6835f199d5cb37f23e27d42b82f1f",
+  "sdk" : "org.freedesktop.Sdk",
+  "sdk-commit" : "fb6fd1d1a3f5753131b2d224c00a316d6e421d952f6c3168475404b5cc2cf488",
+  "command" : "linux_debug.sh",
+  "modules" : [
+    {
+      "name" : "GoZenDEBUG",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "path" : "libgozen.linux.template_debug.x86_64.so",
+          "type" : "file"
+        }
+      ],
+      "build-commands" : [
+        "install -D libgozen.linux.template_debug.x86_64.so /app/bin/libgozen.linux.template_debug.x86_64.so"
+      ]
+    },
+    {
+      "name" : "GoZenPCK",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "path" : "linux_debug.pck",
+          "type" : "file"
+        }
+      ],
+      "build-commands" : [
+        "install -D linux_debug.pck /app/bin/linux_debug.pck"
+      ]
+    },
+    {
+      "name" : "GoZenEXE",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "path" : "linux_debug.x86_64",
+          "type" : "file"
+        }
+      ],
+      "build-commands" : [
+        "install -D linux_debug.x86_64 /app/bin/linux_debug.x86_64"
+      ]
+    },
+    {
+      "name" : "GoZenSH",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "path" : "linux_debug.sh",
+          "type" : "file"
+        }
+      ],
+      "build-commands" : [
+        "install -D linux_debug.sh /app/bin/linux_debug.sh"
+      ]
+    }
+  ],
+  "source-date-epoch" : 1716450480
+}
